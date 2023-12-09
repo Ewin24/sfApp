@@ -19,6 +19,10 @@ class Estudiante
     #[ORM\Column(length: 255)]
     private ?string $Apellido = null;
 
+    #[ORM\ManyToOne(inversedBy: 'Estudiantes')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Curso $Fk_Cursos = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -44,6 +48,18 @@ class Estudiante
     public function setApellido(string $Apellido): static
     {
         $this->Apellido = $Apellido;
+
+        return $this;
+    }
+
+    public function getFkCursos(): ?Curso
+    {
+        return $this->Fk_Cursos;
+    }
+
+    public function setFkCursos(?Curso $Fk_Cursos): static
+    {
+        $this->Fk_Cursos = $Fk_Cursos;
 
         return $this;
     }

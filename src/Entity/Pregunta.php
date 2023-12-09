@@ -22,6 +22,14 @@ class Pregunta
     #[ORM\Column]
     private ?bool $Correcto = null;
 
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?TipoPregunta $Fk_Tipo_Pregunta = null;
+
+    #[ORM\ManyToOne(inversedBy: 'preguntas')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Evaluacion $Fk_Evaluacion = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +67,30 @@ class Pregunta
     public function setCorrecto(bool $Correcto): static
     {
         $this->Correcto = $Correcto;
+
+        return $this;
+    }
+
+    public function getFkTipoPregunta(): ?TipoPregunta
+    {
+        return $this->Fk_Tipo_Pregunta;
+    }
+
+    public function setFkTipoPregunta(TipoPregunta $Fk_Tipo_Pregunta): static
+    {
+        $this->Fk_Tipo_Pregunta = $Fk_Tipo_Pregunta;
+
+        return $this;
+    }
+
+    public function getFkEvaluacion(): ?Evaluacion
+    {
+        return $this->Fk_Evaluacion;
+    }
+
+    public function setFkEvaluacion(?Evaluacion $Fk_Evaluacion): static
+    {
+        $this->Fk_Evaluacion = $Fk_Evaluacion;
 
         return $this;
     }

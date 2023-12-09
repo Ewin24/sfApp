@@ -22,7 +22,7 @@ class CursosRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return Cursos[] Returns an array of Cursos objects
+//     * @return Curso[] Returns an array of Curso objects
 //     */
 //    public function findByExampleField($value): array
 //    {
