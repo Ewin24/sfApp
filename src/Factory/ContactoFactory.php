@@ -52,7 +52,7 @@ final class ContactoFactory extends ModelFactory
             'Correo' => self::faker()->text(255),
             'Mensaje' => self::faker()->text(255),
             'Nombre' => self::faker()->text(255),
-            
+            'fk_AreaContacto' => AreaContactoFactory::random(),
         ];
     }
 

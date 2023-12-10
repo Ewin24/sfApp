@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\AreaContacto;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use App\Factory\CursoFactory;
 use App\Factory\ContactoFactory;
@@ -21,6 +22,8 @@ class AppFixtures extends Fixture
         EvaluacionFactory::createMany(20);
         PreguntaFactory::createMany(20);
         TipoPreguntaFactory::createMany(20);
+        AreaContactoFactory::createMany(20);
+        ContactoFactory::createMany(20);
 
         // $product = new Product();
         // $manager->persist($product);

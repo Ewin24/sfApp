@@ -48,7 +48,6 @@ final class AreaContactoFactory extends ModelFactory
     {
         return [
             'Nombre' => self::faker()->text(255),
-            'contacto' => ContactoFactory::new(),
         ];
     }
 
