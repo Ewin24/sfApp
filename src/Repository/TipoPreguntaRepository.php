@@ -14,7 +14,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method TipoPregunta[]    findAll()
  * @method TipoPregunta[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class TipoPreguntasRepository extends ServiceEntityRepository
+class TipoPreguntaRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
