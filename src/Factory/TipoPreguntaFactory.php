@@ -47,7 +47,7 @@ final class TipoPreguntaFactory extends ModelFactory
     protected function getDefaults(): array
     {
         return [
-            'Tipo' => self::faker()->text(55),
+            'Tipo' => self::faker()->text(25),
         ];
     }
 

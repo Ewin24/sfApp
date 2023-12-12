@@ -47,7 +47,7 @@ final class CursoFactory extends ModelFactory
     protected function getDefaults(): array
     {
         return [
-            'Nombre' => self::faker()->text(255),
+            'Nombre' => self::faker()->text(10),
         ];
     }
 

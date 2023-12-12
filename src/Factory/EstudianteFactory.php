@@ -47,8 +47,8 @@ final class EstudianteFactory extends ModelFactory
     protected function getDefaults(): array
     {
         return [
-            'Apellido' => self::faker()->text(255),
-            'Nombre' => self::faker()->text(255),
+            'Apellido' => self::faker()->text(8),
+            'Nombre' => self::faker()->text(7),
             'fk_Cursos' => CursoFactory::new(),
         ];
     }

@@ -1,0 +1,36 @@
+{# templates/evaluacion/mostrar_calificaciones.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Mostrar Calificaciones{% endblock %}
+
+{% block body %}
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Calificaciones de Estudiantes</h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Estudiante</th>
+                    <th>Curso</th>
+                    <th>Asignatura</th>
+                    <th>Fecha de Evaluación</th>
+                    <th>Calificación</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for calificacion in calificaciones %}
+                    <tr>
+                        <td>{{ calificacion.estudianteNombre }} {{ calificacion.estudianteApellido }}</td>
+                        <td>{{ calificacion.cursoNombre }}</td>
+                        <td>{{ calificacion.evaluacionAsignatura }}</td>
+                        <td>{{ calificacion.evaluacionFecha|date('Y-m-d H:i:s') }}</td>
+                        <td>{{ calificacion.evaluacionCalificacion }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+{% endblock %}

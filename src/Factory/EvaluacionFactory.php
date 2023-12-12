@@ -47,7 +47,7 @@ final class EvaluacionFactory extends ModelFactory
     protected function getDefaults(): array
     {
         return [
-            'Asignatura' => self::faker()->text(55),
+            'Asignatura' => self::faker()->text(15),
             'Calificacion' => self::faker()->randomDigit(),
             'Fecha' => self::faker()->dateTime(),
             'fk_Cursos' => CursoFactory::new(),

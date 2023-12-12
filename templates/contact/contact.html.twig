@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contactos{% endblock %}
+
+{% block body %}
+
+<div class="m-2">
+    <button class="btn btn-success">
+        <a href="{{ path('save_contacto') }}" class="text-white">Crear Nuevo Contacto</a>
+    </button>
+</div>
+
+    <div class="container mt-3">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Celular</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for contact in contacts %}
+                    <tr>
+                        <td>{{ contact.nombre }}</td>
+                        <td>{{ contact.celular }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

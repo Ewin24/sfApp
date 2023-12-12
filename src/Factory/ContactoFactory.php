@@ -47,11 +47,11 @@ final class ContactoFactory extends ModelFactory
     protected function getDefaults(): array
     {
         return [
-            'Apellido' => self::faker()->text(255),
-            'Celular' => self::faker()->text(255),
-            'Correo' => self::faker()->text(255),
+            'Apellido' => self::faker()->text(25),
+            'Celular' => self::faker()->text(10),
+            'Correo' => self::faker()->text(40),
             'Mensaje' => self::faker()->text(255),
-            'Nombre' => self::faker()->text(255),
+            'Nombre' => self::faker()->text(7),
             'fk_AreaContacto' => AreaContactoFactory::random(),
         ];
     }

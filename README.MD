@@ -1,4 +1,4 @@
-Al iniciar el proyecto, dirigirse a /.env y configurar el string de conexion a la base de datos
+Al iniciar el proyecto, dirigirse a /.env y configurare el string de conexion a la base de datos
 
 ```
 
@@ -10,19 +10,24 @@ Al iniciar el proyecto, dirigirse a /.env y configurar el string de conexion a l
 
 # DATABASE_URL="postgresql://app:!ChangeMe!@127.0.0.1:5432/app?serverVersion=15&charset=utf8"
 
-Con la configuracion del string ya podremos acceder a la base de datos, pero primero debemos crearla con el comando:
+```
 
+Con la configuracion del string ya podremos acceder a la base de datos, pero primero debemos crearla con el comando:
 ```
 php bin/console doctrine:database:create
-```
 
+```
 Luego de ello, el siguiente comando aplica la migracion a nuestra base de datos 
 
 ```
 php bin/console doctrine:migration:migrate
+
 ```
 
 En caso de que necesitar datos de prueba, ejecutar el comando: 
+
 ```
+
 php bin/console doctrine:fixtures:load
+
 ```

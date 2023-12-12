@@ -26,6 +26,7 @@ class AppFixtures extends Fixture
         ContactoFactory::createMany(20);
 
         // $product = new Product();
+        
         // $manager->persist($product);
 
         $manager->flush();
