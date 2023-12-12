@@ -6,6 +6,9 @@
 parameters:
 
 services:
+    App\Service\MensajeService:
+            autowire: true
+            autoconfigure: true
     App\Service\ContactoService:
             arguments:
                 $entityManager: '@doctrine.orm.entity_manager'

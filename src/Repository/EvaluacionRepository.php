@@ -4,7 +4,10 @@ namespace App\Repository;
 
 use App\Entity\Evaluacion;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Query\Expr\GroupBy;
 use Doctrine\Persistence\ManagerRegistry;
+use Knp\Component\Pager\PaginatorInterface;
 
 /**
  * @extends ServiceEntityRepository<Evaluacion>
@@ -19,6 +22,7 @@ class EvaluacionRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Evaluacion::class);
+        
     }
 
     //    /**
@@ -47,22 +51,22 @@ class EvaluacionRepository extends ServiceEntityRepository
     //    }
     public function obtenerCalificaciones()
     {
-        $qb = $this->createQueryBuilder('evaluacion')
-            ->select('evaluacion.Asignatura AS Asignatura','evaluacion.Calificacion','c.Nombre AS nombre_cruso')
-            ->join('evaluacion.Fk_Cursos', 'c');
-            ->join('evaluacion.Fk_Cursos', 'c');
+        $qb = $this->createQueryBuilder('ev')
+            ->select('e.id AS estudiante_id', 'e.Nombre AS estudiante_nombre', 'e.Apellido AS estudiante_apellido', 'c.Nombre AS curso_nombre', 'ev.Asignatura AS evaluacion_asignatura', 'ev.Fecha AS evaluacion_fecha', 'ev.Calificacion AS evaluacion_calificacion')
+            ->from('App\Entity\Estudiante', 'e')
+            ->join('e.Fk_Cursos', 'c');
 
-        echo $qb;
-        echo $qb->getQuery()->getResult()[0]['Asignatura'];
-        
+        // $pageNumber = $request->query->getInt('page', 1);
+
+        // $itemsPerPage = 10;
+
+        // $pagination = $this->paginator->paginate(
+        //     $qb->getQuery(),
+        //     $pageNumber,
+        //     $itemsPerPage
+        // );
+
+        // return $pagination;
         return $qb->getQuery()->getResult();
-
-        // ->select('e.id AS estudiante_id', 'e.nombre AS estudiante_nombre', 'e.apellido AS estudiante_apellido', 'c.nombre AS curso_nombre', 'ev.asignatura AS evaluacion_asignatura', 'ev.fecha AS evaluacion_fecha', 'ev.calificacion AS evaluacion_calificacion')
-        // ->join('re.estudiante', 'e')
-        // ->join('re.curso', 'c')
-        // ->join('re.evaluacion', 'ev')
-        // ->join('ev.preguntas', 'p')
-        // ->where('p.correcto = :correcto')
-        // ->setParameter('correcto', 1);
     }
 }

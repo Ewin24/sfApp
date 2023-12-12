@@ -9,6 +9,7 @@ use App\Factory\ContactoFactory;
 use App\Factory\AreaContactoFactory;
 use App\Factory\EstudianteFactory;
 use App\Factory\EvaluacionFactory;
+use App\Factory\MensajeFactory;
 use App\Factory\PreguntaFactory;
 use App\Factory\TipoPreguntaFactory;
 use Doctrine\Persistence\ObjectManager;
@@ -24,6 +25,7 @@ class AppFixtures extends Fixture
         TipoPreguntaFactory::createMany(20);
         AreaContactoFactory::createMany(20);
         ContactoFactory::createMany(20);
+        MensajeFactory::createMany(5);
 
         // $product = new Product();
         

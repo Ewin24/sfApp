@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\ResultadoEvaluacionRepository;
+use Symfony\Component\HttpFoundation\Request;
 
 class EvaluacionController extends AbstractController
 {
@@ -14,8 +15,8 @@ class EvaluacionController extends AbstractController
     public function mostrarCalificaciones(EvaluacionRepository $evaluacionRepository): Response
     {
         $calificaciones = $evaluacionRepository->obtenerCalificaciones();
-        return $this->render('evaluacion/mostrar_calificaciones.html.twig', [
-            'calificaciones' => $calificaciones,
+        return $this->render('evaluacion/resultadosEvaluacion.html.twig', [
+            'informacion' => $calificaciones,
         ]);
     }
 }

@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mensajes{% endblock %}
+
+{% block body %}
+    <div class="m-2">
+        <button class="btn btn-success">
+            <a href="{{ path('enviarMensaje') }}" class="text-white">Enviar un mensaje</a>
+        </button>
+    </div>
+
+    <div class="container mt-4">
+        <h1 class="mb-4">Mensajes</h1>
+
+        {% if mensajes is not empty %}
+            <ul class="list-group">
+                {% for mensaje in mensajes %}
+                    <li class="list-group-item">
+                        {{ mensaje.Mensaje }} - Enviado el {{ mensaje.FechaEnvio|date('Y-m-d H:i:s') }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No hay mensajes disponibles.</p>
+        {% endif %}
+    </div>
+{% endblock %}
